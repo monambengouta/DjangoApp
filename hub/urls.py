@@ -1,9 +1,9 @@
 from unicodedata import name
 from django.urls import path
-from .views import homePage ,student_list,student_details
+from .views import homePage ,student_list,student_details,StudentListView,StudentDetailView
 
 urlpatterns = [
     path('home/',homePage,name='home'),
-    path('liststudent/',student_list,name='student_list'),
-    path('getstudent/<int:id>',student_details,name='student_details'),
+    path('liststudent/',StudentListView.as_view(),name='student_list'),
+    path('getstudent/<int:pk>',StudentDetailView.as_view(),name='student_details'),
 ]
